@@ -7,12 +7,13 @@ paginate = 3
 theme = "hugo-dusk"
 
 googleAnalytics = "UA-26376927-1"
-disqusShortname = ""
-
-[author]
-  name = ""
+disqusShortname = "duckpuppy"
 
 SectionPagesMenu = "main"
+
+[author]
+  name = "DuckPuppy"
+
 
 [[menu.main]]
   name = "Posts"
