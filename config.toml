@@ -1,0 +1,37 @@
+baseurl = "http://duckpuppy.com/"
+title = "Random Inconsequential Thoughts"
+copyright = "Copyright (c) 2017, all rights reserved"
+canonifyurls = true
+languageCode = "en-US"
+paginate = 3
+theme = "hugo-dusk"
+
+googleAnalytics = ""
+disqusShortname = ""
+
+[author]
+  name = ""
+
+SectionPagesMenu = "main"
+
+[[menu.main]]
+  name = "Posts"
+  weight = -1120
+  identifier = "post"
+  url = "/post/"
+
+[[menu.main]]
+  name = "Tags"
+  weight = -110
+  identifier = "tag"
+  url = "/tags/"
+
+[params.meta]
+  keywords = "blog, tech"
+  description = "Personal blog."
+
+[params]
+  github = "duckpuppy"
+  gitlab = "duckpuppy"
+  twitter = "duckpuppy"
+  email = "paikens@gmail.com"
