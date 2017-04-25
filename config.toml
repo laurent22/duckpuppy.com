@@ -6,7 +6,7 @@ languageCode = "en-US"
 paginate = 3
 theme = "hugo-dusk"
 
-googleAnalytics = ""
+googleAnalytics = "UA-26376927-1"
 disqusShortname = ""
 
 [author]
