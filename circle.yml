@@ -3,6 +3,19 @@ general:
     ignore:
       - gh-pages
 
+machine:
+  environment:
+    CIRCLE_BUILD_DIR: $HOME/$CIRCLE_PROJECT_REPONAME
+    PATH: $PATH:$CIRCLE_BUILD_DIR/bin
+  post:
+    - mkdir -p $CIRCLE_BUILD_DIR/bin
+
+dependencies:
+  pre:
+    - bash ./scripts/ci-install-hugo.sh
+  cache_directories:
+    - bin
+
 test:
   override:
     - exit 0
@@ -11,6 +24,7 @@ deployment:
   staging:
     branch: master
     commands:
+      - ./scripts/ci-install-hugo.sh
       - git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
       - git config --global user.name "$GH_NAME" > /dev/null 2>&1
       - ./scripts/publish
