@@ -10,6 +10,11 @@ machine:
   post:
     - mkdir -p $CIRCLE_BUILD_DIR/bin
 
+checkout:
+  post:
+    - git submodule sync --recursive
+    - git submodule update --init --recursive
+
 dependencies:
   pre:
     - bash ./scripts/ci-install-hugo.sh
