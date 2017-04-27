@@ -10,7 +10,7 @@ Hi, I'm Patrick Aikens.
 
 I'm a software engineer, and have been for a very long time. I started in the
 video games industry. Since then I have passed through the insurance industry
-and the banking industry before ending up at Manheim, Inc. where I am now.
+and the banking industry before ending up at Manheim, Inc. where I remain today.
 
 ## My Blog
 
