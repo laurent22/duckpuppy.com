@@ -14,12 +14,22 @@ checkout:
   post:
     - git submodule sync --recursive
     - git submodule update --init --recursive
+    - rm -rf public
+    - mkdir public
+    - git worktree prune
+    - rm -rf .git/worktrees/public
+    - git worktree add -B gh-pages public origin/gh-pages
+    - rm -rf public/* 
 
 dependencies:
   pre:
     - bash ./scripts/ci-install-hugo.sh
   cache_directories:
     - bin
+
+compile:
+  override:
+    - hugo
 
 test:
   override:
@@ -31,4 +41,4 @@ deployment:
     commands:
       - git config --global user.email "$GH_EMAIL" > /dev/null 2>&1
       - git config --global user.name "$GH_NAME" > /dev/null 2>&1
-      - ./scripts/publish
+      - cd public && git add --all && git commit -m "Publishing to gh-pages" && git push || exit 0
