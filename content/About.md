@@ -4,11 +4,9 @@ title = "About"
 menu = "main"
 +++
 
-## About
+## Who I Am
 
 Hi, I'm Patrick Aikens.
-
-## Who I Am
 
 I'm a software engineer, and have been for a very long time. I started in the
 video games industry. Since then I have passed through the insurance industry
