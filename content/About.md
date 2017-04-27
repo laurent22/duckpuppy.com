@@ -1,6 +1,6 @@
 +++
 date = "2017-04-27T11:38:27-04:00"
-title = "about"
+title = "About"
 menu = "main"
 +++
 
