@@ -25,9 +25,9 @@ jobs:
       - run:
           name: "Run Hugo"
           command: HUGO_ENV=production hugo -v -s ~/project
-      - run:
-          name: "Test Website"
-          command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
+      # - run:
+      #     name: "Test Website"
+      #     command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
       - add_ssh_keys
       - deploy:
           command: |
