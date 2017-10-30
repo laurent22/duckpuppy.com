@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: felicianotech/docker-hugo:0.30.2
+    branches:
+      ignore:
+        - gh-pages
+    steps:
+      - checkout
+      - run:
+          name: "Check out submodules"
+          command: |
+            git submodule sync --recursive
+            git submodule update --init --recursive
+      - run:
+          name: "Setup Worktree"
+          command: |
+            rm -rf public
+            mkdir public
+            git worktree prune
+            rm -rf .git/worktrees/public
+            git worktree add -B gh-pages public origin/gh-pages
+            rm -rf public/*
+      - run:
+          name: "Run Hugo"
+          command: HUGO_ENV=production hugo -v -s ~/project
+      - run:
+          name: "Test Website"
+          command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
+      - add_ssh_keys
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git config --global user.email "$GH_EMAIL" > /dev/nul 2>&1
+              git config --global user.name "$GH_NAME" > /dev/nul 2>&1
+              cd public && git add --all && git commit -m "Publishing to gh-pages" && git push || exit 0
+            fi
+
