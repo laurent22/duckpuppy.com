@@ -28,7 +28,6 @@ jobs:
       # - run:
       #     name: "Test Website"
       #     command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
-      - add_ssh_keys
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -36,4 +35,3 @@ jobs:
               git config --global user.name "$GH_NAME" > /dev/nul 2>&1
               cd public && git add --all && git commit -m "Publishing to gh-pages" && git push || exit 0
             fi
-
