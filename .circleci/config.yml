@@ -29,6 +29,7 @@ jobs:
       #     name: "Test Website"
       #     command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
       - deploy:
+          name: "Deploy to GH Pages"
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               git config --global user.email "$GH_EMAIL" > /dev/nul 2>&1
